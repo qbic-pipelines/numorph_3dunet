@@ -13,7 +13,7 @@ setup(
     long_description_content_type="text/markdown",
     license="MIT",
     keywords=["3dunet", "segmentation", "microscopy", "lightsheet"],
-    url="https://github.com/CaroAMN/numorph_3dunet",
+    url="https://github.com/qbic-pipelines/numorph_3dunet",
     entry_points={
         'console_scripts': [
             'numorph_3dunet.predict=numorph_3dunet.cli:predict',

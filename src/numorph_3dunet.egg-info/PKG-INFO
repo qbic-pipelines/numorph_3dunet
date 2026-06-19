@@ -1,16 +1,79 @@
-Metadata-Version: 2.1
+Metadata-Version: 2.4
 Name: numorph-3dunet
-Version: 0.1.0
+Version: 1.0.0
 Summary: Numorph segmentation of cell nuclei using a 3dunet.
-Home-page: https://github.com/CaroAMN/numorph_3dunet
+Home-page: https://github.com/qbic-pipelines/numorph_3dunet
 Author: Carolin Schwitalla
-Author-email: carolin.schwitalla@uni-tuebingen.de
-License: MIT
+Author-email: Carolin Schwitalla <carolin.schwitalla@uni-tuebingen.de>
+Maintainer-email: Carolin Schwitalla <carolin.schwitalla@uni-tuebingen.de>
+License-Expression: MIT
+Project-URL: Homepage, https://github.com/CaroAMN/numorph_3dunet
+Project-URL: Documentation, https://github.com/CaroAMN/numorph_3dunet
+Project-URL: Repository, https://github.com/CaroAMN/numorph_3dunet.git
+Project-URL: Issues, https://github.com/CaroAMN/numorph_3dunet/issues
 Keywords: 3dunet,segmentation,microscopy,lightsheet
-Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Programming Language :: Python :: 3.6
 Requires-Python: >=3.6
 Description-Content-Type: text/markdown
 License-File: LICENSE
+Requires-Dist: cloudpickle==1.5.0
+Requires-Dist: cycler==0.10.0
+Requires-Dist: cytoolz==0.10.1
+Requires-Dist: dask-core==2.24.0
+Requires-Dist: decorator==4.4.2
+Requires-Dist: kiwisolver==1.2.0
+Requires-Dist: networkx==2.5
+Requires-Dist: olefile==0.46
+Requires-Dist: pillow==7.2.0
+Requires-Dist: pyparsing==2.4.7
+Requires-Dist: python==3.6.10
+Requires-Dist: python-dateutil
+Requires-Dist: pyyaml==5.3.1
+Requires-Dist: readline==8.0
+Requires-Dist: six==1.15.0
+Requires-Dist: sqlite==3.33.0
+Requires-Dist: toolz==0.10.0
+Requires-Dist: tornado==6.0.4
+Requires-Dist: absl-py==0.10.0
+Requires-Dist: astor==0.8.1
+Requires-Dist: connected-components-3d==1.8.0
+Requires-Dist: gast==0.4.0
+Requires-Dist: grpcio==1.31.0
+Requires-Dist: h5py==2.10.0
+Requires-Dist: imageio==2.9.0
+Requires-Dist: importlib-metadata==1.7.0
+Requires-Dist: joblib==0.16.0
+Requires-Dist: keras==2.1.6
+Requires-Dist: keras-applications==1.0.8
+Requires-Dist: keras-preprocessing==1.1.2
+Requires-Dist: markdown==3.2.2
+Requires-Dist: mat73==0.46
+Requires-Dist: matplotlib==3.3.1
+Requires-Dist: nibabel==2.4.0
+Requires-Dist: nilearn==0.6.2
+Requires-Dist: numexpr==2.7.1
+Requires-Dist: numpy==1.16.0
+Requires-Dist: opencv-python==4.2.0.32
+Requires-Dist: pydot==1.4
+Requires-Dist: protobuf==3.13.0
+Requires-Dist: pywavelets==1.1.1
+Requires-Dist: scikit-image==0.16.2
+Requires-Dist: scikit-learn==0.23.2
+Requires-Dist: scipy==1.2.1
+Requires-Dist: simpleitk==1.2.0
+Requires-Dist: sklearn==0.0
+Requires-Dist: tables==3.6.1
+Requires-Dist: termcolor==1.1.0
+Requires-Dist: threadpoolctl==2.1.0
+Requires-Dist: werkzeug==1.0.1
+Requires-Dist: zipp==3.1.0
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
 
 # NuMorph 3DUnet
 
@@ -18,12 +81,27 @@ The package performs cell nuclei segmentation on large light-sheet imaging datas
 
 This package containes the original 3DUnet used in the NuMorph pipeline. A detailed describtion of the architecture and training procedure can be found in the [publication](https://doi.org/10.1016/j.celrep.2021.109802).
 
+# Installation
+Clone the repository to your workstation.
+The `numorphunet.yml` defines the nescessary dependencies for running the prediction. You need to have `conda` installed to create the environment with the following command: 
+```
+conda env create -f numorphunet.yml
+```
+Activate the environment with: 
+```
+conda activate 3dunet
+```
+Install the numorph 3DUnet in the `3dunet`conda env by using the follwoing command in the directory of the `pyproject.toml` file :
+```
+pip install .
+```
+
 # Usage
 
 Once installed, you can run the cell segmentation tool using the command:
 
 ```
-numorph_3dunet.predict -i /path/to/input/directory -o /path/to/output/directory --n_channels 1 --sample_name TEST1
+numorph_3dunet.predict -i /path/to/input/directory -o /path/to/output/directory --n_channels 1 --sample_name TEST1 --model /path/to/model_file.h5
 ```
 
 Required arguments:
@@ -31,12 +109,16 @@ Required arguments:
 - `-o`: Output directory (will be created if it doesn't exist)
 - `--n_channels`: Number of channels
 - `--sample_name`: Sample name for output files
+- `--model`: Model file (.h5)
 
 Optional arguments:
+- `-g`: GPU tag (default: 0)
 - `--pred_threshold`: Prediction threshold (default: 0.5)
 - `--int_threshold`: Minimum intensity threshold (default: 200)
-- `--overlap`: Overlap between chunks [x y z] (default: 16 16 8) 
-- See full help with `numorph_3dunet.predict --help`
+- `--overlap`: Overlap between chunks [x y z] (default: 16 16 8)
+
+See full help with `numorph_3dunet.predict --help`
+
 
 # Credits
 
@@ -46,4 +128,3 @@ The pip package was originally developed by Carolin Schwitalla and contains the 
 > Krupa O, Fragola G, Hadden-Ford E, Mory JT, Liu T, Humphrey Z, Rees BW, Krishnamurthy A, Snider WD, Zylka MJ, Wu G, Xing L, Stein JL.
 >
 > Cell Rep. 2021 Oct 12, doi: [10.1016/j.celrep.2021.109802](https://doi.org/10.1016%2Fj.celrep.2021.109802)
-

@@ -97,20 +97,20 @@ def main():
 
     ################################
     ## Extra options for running model on GPU with limited memory
-    if args.gpu:
-        import tensorflow as tf
-        from keras import backend as k
-    
-        config = tf.ConfigProto()
-    
+    #if args.gpu:
+    #    import tensorflow as tf
+    #    from keras import backend as k
+    #
+    #    config = tf.ConfigProto()
+    #
     # Don't pre-allocate memory; allocate as-needed
-        config.gpu_options.allow_growth = True
+     #   config.gpu_options.allow_growth = True
     
     # Only allow a total of half the GPU memory to be allocated
-        config.gpu_options.per_process_gpu_memory_fraction = 0.25
+    #    config.gpu_options.per_process_gpu_memory_fraction = 0.25
     
     # Create a session with the above options specified.
-        k.tensorflow_backend.set_session(tf.Session(config=config))
+    #    k.tensorflow_backend.set_session(tf.Session(config=config))
 
     ################################
 

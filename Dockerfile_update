@@ -1,0 +1,35 @@
+## optimized nvidia base container for older python and tensorflow
+FROM nvcr.io/nvidia/tensorflow:20.10-tf1-py3
+
+LABEL maintainer="Carolin Schwitalla <carolin.schwitalla@uni-tuebingen.de>"
+LABEL description="NuMorph 3D-UNet for nuclei segmentation in light-sheet microscopy data"
+
+
+# Install git which might be needed for some packages
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    git \
+    libgl1-mesa-glx \
+    libglib2.0-0 \
+    libsm6 \
+    libxext6 \
+    libxrender-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install your dependencies directly into the container's system python
+RUN pip install --upgrade pip
+
+
+RUN pip install --no-cache-dir git+https://github.com/keras-team/keras-contrib.git
+
+# Install the package in development mode
+RUN pip install --no-deps \
+    --index-url https://test.pypi.org/simple/ \
+    numorph-3dunet==1.0.0
+
+# Create directory for models
+RUN mkdir -p /models
+
+
+
+# Remove ENTRYPOINT to make it work with Nextflow
+CMD ["/bin/bash"]

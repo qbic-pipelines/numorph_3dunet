@@ -8,7 +8,7 @@ src/numorph_3dunet/version.py
 src/numorph_3dunet.egg-info/PKG-INFO
 src/numorph_3dunet.egg-info/SOURCES.txt
 src/numorph_3dunet.egg-info/dependency_links.txt
-src/numorph_3dunet.egg-info/entry_points.txt
+src/numorph_3dunet.egg-info/requires.txt
 src/numorph_3dunet.egg-info/top_level.txt
 src/numorph_3dunet/unet3d/__init__.py
 src/numorph_3dunet/unet3d/augment.py

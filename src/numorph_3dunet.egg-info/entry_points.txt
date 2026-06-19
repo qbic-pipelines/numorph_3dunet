@@ -1,3 +1,0 @@
-[console_scripts]
-numorph_3dunet.predict = numorph_3dunet.cli:predict
-
