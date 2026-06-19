@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "numorph-3dunet"
-version = "1.0.0"
+version = "1.1.0"
 description = "Numorph segmentation of cell nuclei using a 3dunet."
 keywords = ["3dunet", "segmentation", "microscopy", "lightsheet"]
 readme = "README.md"

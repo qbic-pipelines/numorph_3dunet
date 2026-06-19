@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: numorph-3dunet
-Version: 1.0.0
+Version: 1.1.0
 Summary: Numorph segmentation of cell nuclei using a 3dunet.
 Home-page: https://github.com/qbic-pipelines/numorph_3dunet
 Author: Carolin Schwitalla
