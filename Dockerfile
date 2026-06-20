@@ -1,41 +1,32 @@
-FROM continuumio/miniconda3:latest
+## optimized nvidia base container for older python and tensorflow
+FROM nvcr.io/nvidia/tensorflow:20.10-tf1-py3
 
 LABEL maintainer="Carolin Schwitalla <carolin.schwitalla@uni-tuebingen.de>"
 LABEL description="NuMorph 3D-UNet for nuclei segmentation in light-sheet microscopy data"
 
-# Fix the apt sources list issue
-#RUN sed -i 's/stable/oldoldstable/g' /etc/apt/sources.list && \
- #   sed -i 's/stable-updates/oldoldstable-updates/g' /etc/apt/sources.list
 
 # Install git which might be needed for some packages
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
+    libgl1-mesa-glx \
+    libglib2.0-0 \
+    libsm6 \
+    libxext6 \
+    libxrender-dev \
     && rm -rf /var/lib/apt/lists/*
 
-# Create working directory
-WORKDIR /app
+# Install your dependencies directly into the container's system python
+RUN pip install --upgrade pip
 
-# Copy environment file first (better for caching)
-COPY numorphunet.yml /app/
 
-# Create conda environment
-RUN conda env create -f numorphunet.yml
-
-# Copy the package into the container
-COPY . /app/
+RUN pip install git+https://github.com/keras-team/keras-contrib.git
 
 # Install the package in development mode
-RUN /bin/bash -c "source activate 3dunet && pip install -e ."
+RUN pip install numorph-3dunet
 
 # Create directory for models
 RUN mkdir -p /models
 
-# Add environment variables for better Nextflow compatibility
-ENV PATH=/opt/conda/bin:/opt/conda/condabin:$PATH
-ENV PYTHONUNBUFFERED=1
-ENV CONDA_DEFAULT_ENV=3dunet
-ENV PYTHONDONTWRITEBYTECODE=1
 
 # Remove ENTRYPOINT to make it work with Nextflow
-# Instead, set a default CMD that activates the conda environment
-CMD ["/bin/bash", "-c", "source activate 3dunet && exec /bin/bash"]
+CMD ["/bin/bash"]

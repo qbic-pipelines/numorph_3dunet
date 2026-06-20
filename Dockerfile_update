@@ -19,16 +19,13 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN pip install --upgrade pip
 
 
-RUN pip install --no-cache-dir git+https://github.com/keras-team/keras-contrib.git
+RUN pip install git+https://github.com/keras-team/keras-contrib.git
 
 # Install the package in development mode
-RUN pip install --no-deps \
-    --index-url https://test.pypi.org/simple/ \
-    numorph-3dunet==1.0.0
+RUN pip install numorph-3dunet
 
 # Create directory for models
 RUN mkdir -p /models
-
 
 
 # Remove ENTRYPOINT to make it work with Nextflow

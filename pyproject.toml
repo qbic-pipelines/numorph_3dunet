@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "numorph-3dunet"
-version = "1.0.0"
+version = "1.0.1"
 description = "Numorph segmentation of cell nuclei using a 3dunet."
 keywords = ["3dunet", "segmentation", "microscopy", "lightsheet"]
 readme = "README.md"
@@ -20,19 +20,16 @@ dependencies = [
     "cloudpickle==1.5.0",
     "cycler==0.10.0",
     "cytoolz==0.10.1",
-    "dask-core==2.24.0",
+    "dask==2.24.0",
     "decorator==4.4.2",
     "kiwisolver==1.2.0",
     "networkx==2.5",
     "olefile==0.46",
     "pillow==7.2.0",
     "pyparsing==2.4.7",
-    "python==3.6.10",
-    "python-dateutil",
+    "python-dateutil==2.8.2",
     "pyyaml==5.3.1",
-    "readline==8.0",
     "six==1.15.0",
-    "sqlite==3.33.0",
     "toolz==0.10.0",
     "tornado==6.0.4",
     "absl-py==0.10.0",
@@ -62,7 +59,6 @@ dependencies = [
     "scikit-learn==0.23.2",
     "scipy==1.2.1",
     "simpleitk==1.2.0",
-    "sklearn==0.0",
     "tables==3.6.1",
     "termcolor==1.1.0",
     "threadpoolctl==2.1.0",
@@ -78,8 +74,10 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/CaroAMN/numorph_3dunet"
-Documentation = "https://github.com/CaroAMN/numorph_3dunet"
-Repository = "https://github.com/CaroAMN/numorph_3dunet.git"
-Issues = "https://github.com/CaroAMN/numorph_3dunet/issues"
+Homepage = "https://github.com/qbic-pipelines/numorph_3dunet"
+Documentation = "https://github.com/qbic-pipelines/numorph_3dunet"
+Repository = "https://github.com/qbic-pipelines/numorph_3dunet"
+Issues = "https://github.com/qbic-pipelines/numorph_3dunet/issues"
 
+[project.scripts]
+"numorph_3dunet.predict" = "numorph_3dunet.cli:predict"
