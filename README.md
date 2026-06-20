@@ -4,9 +4,14 @@ The package performs cell nuclei segmentation on large light-sheet imaging datas
 
 This package containes the original 3DUnet used in the NuMorph pipeline. A detailed describtion of the architecture and training procedure can be found in the [publication](https://doi.org/10.1016/j.celrep.2021.109802).
 
-# Installation
+
+>The PyPi package is intended to be installed in a Nvidia optimized [container](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorflow/tags?version=20.10-tf2-py3) with Tensorflow and used as a nextflow module in the pipeline [nf-core/lsmquant](https://github.com/nf-core/lsmquant). The container is hosted by the nf-core community repository on quay.io .   
+
+## Installation
+The package can also be used within a conda environment (not recommended). 
+
 Clone the repository to your workstation.
-The `numorphunet.yml` defines the nescessary dependencies for running the prediction. You need to have `conda` installed to create the environment with the following command: 
+The `numorphunet.yml` defines the necessary dependencies for running the prediction. You need to have `conda` installed to create the environment with the following command: 
 ```
 conda env create -f numorphunet.yml
 ```
@@ -14,12 +19,12 @@ Activate the environment with:
 ```
 conda activate 3dunet
 ```
-Install the numorph 3DUnet in the `3dunet`conda env by using the follwoing command in the directory of the `pyproject.toml` file :
+Install the numorph 3DUnet in the `3dunet`conda env by using the following command in the directory of the `pyproject.toml` file :
 ```
 pip install .
 ```
 
-# Usage
+## Usage
 
 Once installed, you can run the cell segmentation tool using the command:
 

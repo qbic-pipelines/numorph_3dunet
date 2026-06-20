@@ -22,7 +22,7 @@ RUN pip install --upgrade pip
 RUN pip install --no-cache-dir git+https://github.com/keras-team/keras-contrib.git
 
 # Install the package in development mode
-RUN pip install --no-deps git+https://github.com/CaroAMN/numorph_3dunet.git@main
+RUN pip install --no-cache-dir git+https://github.com/qbic-pipelines/numorph_3dunet.git@dev
 
 # Create directory for models
 RUN mkdir -p /models
