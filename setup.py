@@ -13,7 +13,7 @@ setup(
     author="Carolin Schwitalla",
     author_email="carolin.schwitalla@uni-tuebingen.de",
     description="Numorph segmentation of cell nuclei using a 3dunet.",
-    this_directory = Path(__file__).parent
+    this_directory = Path(__file__).parent,
     long_description=long_description,
     long_description_content_type='text/markdown',
     license="MIT",
