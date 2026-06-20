@@ -6,7 +6,7 @@ long_description= (this_directory / "README.md").read_text()
 
 setup(
     name="numorph_3dunet",
-    version="0.1.0",
+    version="1.0.1",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
     python_requires=">=3.6",

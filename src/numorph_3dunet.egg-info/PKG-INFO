@@ -1,16 +1,16 @@
 Metadata-Version: 2.4
 Name: numorph-3dunet
-Version: 1.1.0
+Version: 1.0.1
 Summary: Numorph segmentation of cell nuclei using a 3dunet.
 Home-page: https://github.com/qbic-pipelines/numorph_3dunet
 Author: Carolin Schwitalla
 Author-email: Carolin Schwitalla <carolin.schwitalla@uni-tuebingen.de>
 Maintainer-email: Carolin Schwitalla <carolin.schwitalla@uni-tuebingen.de>
 License-Expression: MIT
-Project-URL: Homepage, https://github.com/CaroAMN/numorph_3dunet
-Project-URL: Documentation, https://github.com/CaroAMN/numorph_3dunet
-Project-URL: Repository, https://github.com/CaroAMN/numorph_3dunet.git
-Project-URL: Issues, https://github.com/CaroAMN/numorph_3dunet/issues
+Project-URL: Homepage, https://github.com/qbic-pipelines/numorph_3dunet
+Project-URL: Documentation, https://github.com/qbic-pipelines/numorph_3dunet
+Project-URL: Repository, https://github.com/qbic-pipelines/numorph_3dunet
+Project-URL: Issues, https://github.com/qbic-pipelines/numorph_3dunet/issues
 Keywords: 3dunet,segmentation,microscopy,lightsheet
 Classifier: Development Status :: 2 - Pre-Alpha
 Classifier: Intended Audience :: Science/Research
@@ -22,19 +22,16 @@ License-File: LICENSE
 Requires-Dist: cloudpickle==1.5.0
 Requires-Dist: cycler==0.10.0
 Requires-Dist: cytoolz==0.10.1
-Requires-Dist: dask-core==2.24.0
+Requires-Dist: dask==2.24.0
 Requires-Dist: decorator==4.4.2
 Requires-Dist: kiwisolver==1.2.0
 Requires-Dist: networkx==2.5
 Requires-Dist: olefile==0.46
 Requires-Dist: pillow==7.2.0
 Requires-Dist: pyparsing==2.4.7
-Requires-Dist: python==3.6.10
-Requires-Dist: python-dateutil
+Requires-Dist: python-dateutil==2.8.2
 Requires-Dist: pyyaml==5.3.1
-Requires-Dist: readline==8.0
 Requires-Dist: six==1.15.0
-Requires-Dist: sqlite==3.33.0
 Requires-Dist: toolz==0.10.0
 Requires-Dist: tornado==6.0.4
 Requires-Dist: absl-py==0.10.0
@@ -64,7 +61,6 @@ Requires-Dist: scikit-image==0.16.2
 Requires-Dist: scikit-learn==0.23.2
 Requires-Dist: scipy==1.2.1
 Requires-Dist: simpleitk==1.2.0
-Requires-Dist: sklearn==0.0
 Requires-Dist: tables==3.6.1
 Requires-Dist: termcolor==1.1.0
 Requires-Dist: threadpoolctl==2.1.0
@@ -81,9 +77,14 @@ The package performs cell nuclei segmentation on large light-sheet imaging datas
 
 This package containes the original 3DUnet used in the NuMorph pipeline. A detailed describtion of the architecture and training procedure can be found in the [publication](https://doi.org/10.1016/j.celrep.2021.109802).
 
-# Installation
+
+>The PyPi package is intended to be installed in a Nvidia optimized [container](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorflow/tags?version=20.10-tf2-py3) with Tensorflow and used as a nextflow module in the pipeline [nf-core/lsmquant](https://github.com/nf-core/lsmquant). The container is hosted by the nf-core community repository on quay.io .   
+
+## Installation
+The package can also be used within a conda environment (not recommended). 
+
 Clone the repository to your workstation.
-The `numorphunet.yml` defines the nescessary dependencies for running the prediction. You need to have `conda` installed to create the environment with the following command: 
+The `numorphunet.yml` defines the necessary dependencies for running the prediction. You need to have `conda` installed to create the environment with the following command: 
 ```
 conda env create -f numorphunet.yml
 ```
@@ -91,12 +92,12 @@ Activate the environment with:
 ```
 conda activate 3dunet
 ```
-Install the numorph 3DUnet in the `3dunet`conda env by using the follwoing command in the directory of the `pyproject.toml` file :
+Install the numorph 3DUnet in the `3dunet`conda env by using the following command in the directory of the `pyproject.toml` file :
 ```
 pip install .
 ```
 
-# Usage
+## Usage
 
 Once installed, you can run the cell segmentation tool using the command:
 
