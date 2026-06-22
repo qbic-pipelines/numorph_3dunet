@@ -1,5 +1,5 @@
 # Format: MAJOR.MINOR.PATCH
-__version__ = "1.0.5"
+__version__ = "1.0.6"
 
 # Additional version info
 __author__ = "Carolin Schwitalla"

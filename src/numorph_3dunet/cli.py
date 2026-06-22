@@ -62,6 +62,7 @@ def cl_parser():
                         help='Resolution of images the model was trained on')
     parser.add_argument('--chunk_size', default=[112, 112, 32], metavar='chunk_size', type=int, nargs=3,
                         help='Chunk size in voxels. Default is 112, 112, 32')
+    parser.add_argument('--version', action='version', version='%(prog)s{__version__}')
 
 
     return parser
