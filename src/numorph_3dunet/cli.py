@@ -9,6 +9,7 @@ import os
 
 from numorph_3dunet.nuclei.read_params import read_params_from_csv
 from numorph_3dunet.nuclei.generate_chunks import generate_chunks
+from numorph_3dunet.version import __version__
 
 
 
@@ -62,7 +63,7 @@ def cl_parser():
                         help='Resolution of images the model was trained on')
     parser.add_argument('--chunk_size', default=[112, 112, 32], metavar='chunk_size', type=int, nargs=3,
                         help='Chunk size in voxels. Default is 112, 112, 32')
-    parser.add_argument('--version', action='version', version='%(prog)s{__version__}')
+    parser.add_argument('--version', action='version', version=f'{__version__}')
 
 
     return parser
