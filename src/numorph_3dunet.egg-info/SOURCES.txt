@@ -1,6 +1,8 @@
 LICENSE
+MANIFEST.in
 README.md
 pyproject.toml
+setup.cfg
 setup.py
 src/numorph_3dunet/__init__.py
 src/numorph_3dunet/__main__.py

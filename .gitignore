@@ -1,0 +1,26 @@
+
+__pycache__/
+src/numorph_3dunet/nuclei/read_paramfile.ipynb
+requirements.txt
+docker_README.md
+# extentions
+*.h5
+src/numorph_3dunet.egg-info/requires.txt
+src/numorph_3dunet.egg-info/SOURCES.txt
+src/numorph_3dunet.egg-info/PKG-INFO
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+src/*.egg-info/*
+.installed.cfg
+*.egg
