@@ -94,7 +94,7 @@ def run():
     
 
     generate_chunks(input_img_directory=args.i,
-                    output_img_directory=args.o,
+                    output_directory=args.o,
                     n_channels=args.n_channels,
                     sample_id=args.sample_id,
                     model_file=args.model_file,

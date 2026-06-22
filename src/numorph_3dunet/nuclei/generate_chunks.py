@@ -41,7 +41,6 @@ def generate_chunks(input_img_directory, output_directory, n_channels=1, sample_
     #####
     # Load model
     model = load_old_model(model_file)
-    print(args)
     # Load mask
     if use_mask:
         print('Loading mask...')

@@ -5,10 +5,9 @@ requirements.txt
 docker_README.md
 # extentions
 *.h5
-
-
-
-Python
+src/numorph_3dunet.egg-info/requires.txt
+src/numorph_3dunet.egg-info/SOURCES.txt
+src/numorph_3dunet.egg-info/PKG-INFO
 build/
 develop-eggs/
 dist/
@@ -22,7 +21,6 @@ sdist/
 var/
 wheels/
 share/python-wheels/
-src/*.egg-info/
+src/*.egg-info/*
 .installed.cfg
 *.egg
-MANIFEST

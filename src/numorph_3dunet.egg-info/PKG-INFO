@@ -1,22 +1,17 @@
 Metadata-Version: 2.4
-Name: numorph-3dunet
-Version: 1.0.1
+Name: numorph_3dunet
+Version: 1.0.5
 Summary: Numorph segmentation of cell nuclei using a 3dunet.
 Home-page: https://github.com/qbic-pipelines/numorph_3dunet
 Author: Carolin Schwitalla
-Author-email: Carolin Schwitalla <carolin.schwitalla@uni-tuebingen.de>
-Maintainer-email: Carolin Schwitalla <carolin.schwitalla@uni-tuebingen.de>
-License-Expression: MIT
-Project-URL: Homepage, https://github.com/qbic-pipelines/numorph_3dunet
-Project-URL: Documentation, https://github.com/qbic-pipelines/numorph_3dunet
-Project-URL: Repository, https://github.com/qbic-pipelines/numorph_3dunet
-Project-URL: Issues, https://github.com/qbic-pipelines/numorph_3dunet/issues
-Keywords: 3dunet,segmentation,microscopy,lightsheet
-Classifier: Development Status :: 2 - Pre-Alpha
+Author-email: carolin.schwitalla@uni-tuebingen.de
+License: MIT
+Classifier: Development Status :: 4 - Beta
 Classifier: Intended Audience :: Science/Research
-Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: License :: OSI Approved :: MIT License
 Classifier: Programming Language :: Python :: 3.6
-Requires-Python: >=3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: <3.7,>=3.6
 Description-Content-Type: text/markdown
 License-File: LICENSE
 Requires-Dist: cloudpickle==1.5.0
@@ -66,10 +61,8 @@ Requires-Dist: termcolor==1.1.0
 Requires-Dist: threadpoolctl==2.1.0
 Requires-Dist: werkzeug==1.0.1
 Requires-Dist: zipp==3.1.0
-Dynamic: author
-Dynamic: home-page
+Requires-Dist: pandas==1.1.5
 Dynamic: license-file
-Dynamic: requires-python
 
 # NuMorph 3DUnet
 
